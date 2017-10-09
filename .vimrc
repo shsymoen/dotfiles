@@ -19,8 +19,10 @@ runtime! archlinux.vim
 
 " Pathogen load
 filetype off
+set nocp
 
 " set the runtime path to include pathogen and initialize
+set rtp+=/home/steffen/.vim/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -120,7 +122,9 @@ au BufNewFile,BufRead *.py
 
 " Settings fro python-mode
 let g:pymode_python = 'python3'
-map <Leader>g :call RopeGotoDefinition()<CR>
+let g:pymode_rope_goto_definition_bind = "<Leader>g"
+let g:pymode_run_bind ="<Leader>r"
+let g:pymode_virtualenv_path = "/home/steffen/anaconda3"
 
 " set to autoread when a file is changed from the outside
 set autoread
@@ -128,3 +132,16 @@ set autoread
 " set mouse input
 set mouse=a
 set selectmode=mouse
+
+" powerline settings
+set laststatus=2 " Always display the statusline in all windows
+set showtabline=2 " Always display the tabline, even if there is only one tab
+
+" load NERDTree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" settings for flake8 PEP8 Python format testing
+let g:flake8_show_quickfix=1 "quickfix window opens
+let g:flake8_show_in_file=1 "show markers in the file
+
