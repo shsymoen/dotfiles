@@ -125,6 +125,9 @@ let g:pymode_python = 'python3'
 let g:pymode_rope_goto_definition_bind = "<Leader>g"
 let g:pymode_run_bind ="<Leader>r"
 let g:pymode_virtualenv_path = "/home/steffen/anaconda3"
+let g:pymode_rope_lookup_project = 0
+let g:pymode_rope_autoimport = 0
+let g:pymode_rope_complete_on_dot = 0
 
 " set to autoread when a file is changed from the outside
 set autoread
