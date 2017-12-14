@@ -3,7 +3,7 @@ filetype off
 set nocp
 
 " set the runtime path to include pathogen and initialize
-set rtp+=/home/cfd/.vim/autoload/pathogen.vim
+set rtp+=~/.vim/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
