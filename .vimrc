@@ -1,9 +1,28 @@
+" All system-wide defaults are set in $VIMRUNTIME/archlinux.vim (usually just
+" /usr/share/vim/vimfiles/archlinux.vim) and sourced by the call to :runtime
+" you can find below.  If you wish to change any of those settings, you should
+" do it in this file (/etc/vimrc), since archlinux.vim will be overwritten
+" everytime an upgrade of the vim packages is performed.  It is recommended to
+" make changes after sourcing archlinux.vim since it alters the value of the
+" 'compatible' option.
+
+" This line should not be removed as it ensures that various options are
+" properly set to work with the Vim-related packages.
+runtime! archlinux.vim
+
+" If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
+" Or better yet, read /usr/share/vim/vim80/vimrc_example.vim or the vim manual
+" and configure vim to your own liking!
+
+" do not load defaults if ~/.vimrc is missing
+"let skip_defaults_vim=1
+
 " Pathogen load
 filetype off
 set nocp
 
 " set the runtime path to include pathogen and initialize
-set rtp+=~/.vim/autoload/pathogen.vim
+set rtp+=/home/steffen/.vim/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -105,7 +124,7 @@ au BufNewFile,BufRead *.py
 let g:pymode_python = 'python3'
 let g:pymode_rope_goto_definition_bind = "<Leader>g"
 let g:pymode_run_bind ="<Leader>r"
-let g:pymode_virtualenv_path = "/home/cfd/anaconda3"
+let g:pymode_virtualenv_path = "/home/steffen/anaconda3"
 let g:pymode_rope_lookup_project = 1
 let g:pymode_rope_autoimport = 0
 let g:pymode_rope_complete_on_dot = 0
@@ -130,3 +149,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:flake8_show_quickfix=1 "quickfix window opens
 let g:flake8_show_in_file=1 "show markers in the file
 
+" to have proper color scheme in tmux
+set background=dark
+set t_Co=256
