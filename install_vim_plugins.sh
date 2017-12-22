@@ -6,3 +6,6 @@ git clone https://github.com/kien/ctrlp.vim.git ~/.vim/bundle/ctrlp.vim
 git clone --recursive https://github.com/python-mode/python-mode.git ~/.vim/bundle/python-mode
 git clone https://github.com/powerline/powerline.git ~/.vim/bundle/powerline
 git clone https://github.com/nvie/vim-flake8.git ~/.vim/bundle/vim-flake8
+
+mkdir -p ~/.tmux/plugins
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
