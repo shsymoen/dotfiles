@@ -22,7 +22,7 @@ filetype off
 set nocp
 
 " set the runtime path to include pathogen and initialize
-set rtp+=/home/steffen/.vim/autoload/pathogen.vim
+set rtp+=~/.vim/autoload/pathogen.vim
 call pathogen#infect()
 call pathogen#helptags()
 
@@ -123,8 +123,9 @@ au BufNewFile,BufRead *.py
 " Settings for python-mode
 let g:pymode_python = 'python3'
 let g:pymode_run_bind ="<Leader>r"
-let g:pymode_virtualenv_path = "/home/steffen/anaconda3"
+let g:pymode_virtualenv_path = "~/anaconda3"
 let g:pymode_rope_lookup_project = 0
+let g:pymode_rope = 0
 let g:pymode_rope_autoimport = 0
 let g:pymode_rope_complete_on_dot = 0
 " let g:pymode_rope_show_doc_bind = "<Leader>d"
