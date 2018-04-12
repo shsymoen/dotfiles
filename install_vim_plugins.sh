@@ -9,8 +9,8 @@ git clone https://github.com/nvie/vim-flake8.git ~/.vim/bundle/vim-flake8
 git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
 cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && cd 
 git clone https://github.com/jmcantrell/vim-virtualenv.git ~/.vim/bundle/vim-virtualenv
-cp .vimrc ~
+ln -s .vimrc ~/.vimrc
 
 mkdir -p ~/.tmux/plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-cp .tmux.conf ~
+ln -s .tmux.conf ~/.tmux.conf

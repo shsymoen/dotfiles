@@ -97,6 +97,10 @@ map <Leader>t <esc>:tabnew<CR>
 " map sort function to a key
 vnoremap <Leader>s :sort<CR>
 
+" more natural splits
+set splitbelow
+set splitright
+
 " easier indentation
 vnoremap < <gv
 vnoremap > >gv
