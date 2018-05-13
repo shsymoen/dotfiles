@@ -127,7 +127,7 @@ au BufNewFile,BufRead *.py
 " Settings for python-mode
 let g:pymode_python = 'python3'
 let g:pymode_run_bind ="<Leader>r"
-let g:pymode_virtualenv_path = "~/anaconda3"
+let g:pymode_virtualenv_path = "/home/steffen/anaconda3/envs/deep-learning"
 let g:pymode_rope_lookup_project = 0
 let g:pymode_rope = 0
 let g:pymode_rope_autoimport = 0
@@ -161,3 +161,13 @@ let g:flake8_show_in_file=1 "show markers in the file
 " to have proper color scheme in tmux
 set background=dark
 set t_Co=256
+
+" python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
