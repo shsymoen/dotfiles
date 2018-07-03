@@ -8,7 +8,8 @@ git clone --recursive https://github.com/python-mode/python-mode.git ~/.vim/bund
 git clone https://github.com/powerline/powerline.git ~/.vim/bundle/powerline
 git clone https://github.com/nvie/vim-flake8.git ~/.vim/bundle/vim-flake8
 git clone https://github.com/Valloric/YouCompleteMe.git ~/.vim/bundle/YouCompleteMe
-cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive && cd 
+cd ~/.vim/bundle/YouCompleteMe && git submodule update --init --recursive
+cd ~/.vim/bundle/YouCompleteMe ./install.py --clang-completer
 git clone https://github.com/jmcantrell/vim-virtualenv.git ~/.vim/bundle/vim-virtualenv
 ln -s $DIR/.vimrc ~/.vimrc
 
