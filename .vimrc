@@ -8,7 +8,7 @@
 
 " This line should not be removed as it ensures that various options are
 " properly set to work with the Vim-related packages.
-runtime! archlinux.vim
+" runtime! archlinux.vim
 
 " If you prefer the old-style vim functionalty, add 'runtime! vimrc_example.vim'
 " Or better yet, read /usr/share/vim/vim80/vimrc_example.vim or the vim manual
@@ -127,11 +127,13 @@ au BufNewFile,BufRead *.py
 " Settings for python-mode
 let g:pymode_python = 'python3'
 let g:pymode_run_bind ="<Leader>r"
-let g:pymode_virtualenv_path = "/home/steffen/anaconda3/envs/deep-learning"
+let g:pymode_virtualenv_path = "/home/steffen/anaconda3/"
+let g:pymode_lint = 0
 let g:pymode_rope_lookup_project = 0
 let g:pymode_rope = 0
 let g:pymode_rope_autoimport = 0
 let g:pymode_rope_complete_on_dot = 0
+let g:pymode_folding = 1
 " let g:pymode_rope_show_doc_bind = "<Leader>d"
 " let g:pymode_rope_goto_definition_bind = "<Leader>g"
 
@@ -163,11 +165,11 @@ set background=dark
 set t_Co=256
 
 " python with virtualenv support
-py << EOF
-import os
-import sys
-if 'VIRTUAL_ENV' in os.environ:
-    project_base_dir = os.environ['VIRTUAL_ENV']
-    activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-    execfile(activate_this, dict(__file__=activate_this))
-EOF
+" py << EOF
+" import os
+" import sys
+" if 'VIRTUAL_ENV' in os.environ:
+"     project_base_dir = os.environ['VIRTUAL_ENV']
+"     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+"     execfile(activate_this, dict(__file__=activate_this))
+" EOF
