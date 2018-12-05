@@ -37,6 +37,9 @@ call pathogen#helptags()
 "call vundle#end()
 filetype plugin indent on
 
+" Enable Elite mode, No ARRRROWWS!!!!
+let g:elite_mode=1
+
 " enable syntax highlighting
 syntax on
 
@@ -125,15 +128,15 @@ au BufNewFile,BufRead *.py
     \ set encoding=utf-8 |
 
 " Settings for python-mode
-let g:pymode_python = 'python3'
-let g:pymode_run_bind ="<Leader>r"
-let g:pymode_virtualenv_path = "/home/steffen/anaconda3/"
-let g:pymode_lint = 0
-let g:pymode_rope_lookup_project = 0
-let g:pymode_rope = 0
-let g:pymode_rope_autoimport = 0
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_folding = 1
+" let g:pymode_python = 'python3'
+" let g:pymode_run_bind ="<Leader>r"
+" let g:pymode_virtualenv_path = "/home/steffen/anaconda3/"
+" let g:pymode_lint = 0
+" let g:pymode_rope_lookup_project = 0
+" let g:pymode_rope = 0
+" let g:pymode_rope_autoimport = 0
+" let g:pymode_rope_complete_on_dot = 0
+" let g:pymode_folding = 1
 " let g:pymode_rope_show_doc_bind = "<Leader>d"
 " let g:pymode_rope_goto_definition_bind = "<Leader>g"
 
@@ -155,10 +158,40 @@ set showtabline=2 " Always display the tabline, even if there is only one tab
 " load NERDTree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+let NERDTreeIgnore=['\.pyc$'] " Ignore files in NERDTree
+
+" settings for A.L.E.
+" Check Python files with flake8 and pylint.
+let b:ale_linters = ['flake8', 'pylint']
+" Fix Python files with autopep8 and yapf
+let b:ale_fixers = ['autopep8', 'yapf']
+" Disable warnings about trailing whitespaace for Python files
+let b:ale_warn_about_trailing_whitespace = 0
 
 " settings for flake8 PEP8 Python format testing
 let g:flake8_show_quickfix=1 "quickfix window opens
 let g:flake8_show_in_file=1 "show markers in the file
+
+" Enable Tagbar
+nmap <F8> :TagbarToggle<CR>
+
+" Smooth scrolling
+noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
+noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
+let g:comfortable_motion_no_default_key_mappings = 1
+let g:comfortable_motion_impulse_multiplier = 1  " Feel free to increase/decrease this value.
+nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
+nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>
+nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
+
+" Disable arrow movement, resize splits instead.
+if get(g:, 'elite_mode')
+    nnoremap <Up>    :resize +2<CR>
+    nnoremap <Down>  :resize -2<CR>
+    nnoremap <Left>  :vertical resize +2<CR>
+    nnoremap <Right> :vertical resize -2<CR>
+endif
 
 " to have proper color scheme in tmux
 set background=dark
