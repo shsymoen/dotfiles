@@ -127,19 +127,6 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix |
     \ set encoding=utf-8 |
 
-" Settings for python-mode
-" let g:pymode_python = 'python3'
-" let g:pymode_run_bind ="<Leader>r"
-" let g:pymode_virtualenv_path = "/home/steffen/anaconda3/"
-" let g:pymode_lint = 0
-" let g:pymode_rope_lookup_project = 0
-" let g:pymode_rope = 0
-" let g:pymode_rope_autoimport = 0
-" let g:pymode_rope_complete_on_dot = 0
-" let g:pymode_folding = 1
-" let g:pymode_rope_show_doc_bind = "<Leader>d"
-" let g:pymode_rope_goto_definition_bind = "<Leader>g"
-
 " Settings for YouCompleteMe
 nmap <leader>g :YcmCompleter GoTo<CR>
 nmap <leader>d :YcmCompleter GoToDefinition<CR>
