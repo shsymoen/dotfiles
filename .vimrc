@@ -184,6 +184,9 @@ endif
 set background=dark
 set t_Co=256
 
+" When saving remove trailing spaces
+autocmd BufWritePre *.py %s/\s\+$//e
+
 " python with virtualenv support
 " py << EOF
 " import os
