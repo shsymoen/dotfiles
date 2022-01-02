@@ -182,8 +182,8 @@ nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impu
 if get(g:, 'elite_mode')
     nnoremap <Up>    :resize +2<CR>
     nnoremap <Down>  :resize -2<CR>
-    nnoremap <Left>  :vertical resize +2<CR>
-    nnoremap <Right> :vertical resize -2<CR>
+    nnoremap <Left>  :vertical resize -2<CR>
+    nnoremap <Right> :vertical resize +2<CR>
 endif
 
 " to have proper color scheme in tmux
