@@ -46,6 +46,12 @@ syntax on
 " show line numbers
 set number
 
+" no backup and swapfiles
+set noswapfile
+set nobackup
+set undodir=~/.vim/undodir
+set undofile
+
 " set tabs to have 4 spaces
 set ts=4
 
