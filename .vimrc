@@ -153,6 +153,8 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let NERDTreeIgnore=['\.pyc$'] " Ignore files in NERDTree
 
+" Set default line lenght of Black fixer to 79
+
 " settings for A.L.E.
 " Check Python files with flake8 and pylint.
 let g:ale_linters = {
@@ -161,7 +163,7 @@ let g:ale_linters = {
 " Fix Python files with autopep8 and yapf
 let g:ale_fixers = {
             \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-            \ 'python': ['autopep8', 'yapf', 'isort', 'autoflake', 'black']
+            \ 'python': ['isort', 'autoflake', 'black']
             \}
 " Disable warnings about trailing whitespaace for Python files
 let g:ale_warn_about_trailing_whitespace = 0
@@ -171,6 +173,9 @@ let g:ale_fix_on_save = 1
 let g:ale_lint_on_text_changed = 'never'
 " No errors while opening a file
 let g:ale_lint_on_enter = 0
+" Black has default 88 line length, which is different than flake8 and pep
+" standard
+let g:ale_python_black_options = '--line-length=79'
 
 " settings for flake8 PEP8 Python format testing
 let g:flake8_show_quickfix=1 "quickfix window opens

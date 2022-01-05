@@ -17,6 +17,8 @@ git clone https://github.com/yuttie/comfortable-motion.vim.git ~/.vim/bundle/com
 git clone git://github.com/majutsushi/tagbar ~/.vim/bundle/tagbar
 ln -s $DIR/.vimrc ~/.vimrc
 
+conda install black
+
 mkdir -p ~/.tmux/plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 ln -s $DIR/.tmux.conf ~/.tmux.conf
