@@ -155,11 +155,22 @@ let NERDTreeIgnore=['\.pyc$'] " Ignore files in NERDTree
 
 " settings for A.L.E.
 " Check Python files with flake8 and pylint.
-let b:ale_linters = ['flake8', 'pylint']
+let g:ale_linters = {
+            \ 'python': ['flake8', 'pylint']
+            \}
 " Fix Python files with autopep8 and yapf
-let b:ale_fixers = ['autopep8', 'yapf']
+let g:ale_fixers = {
+            \ '*': ['remove_trailing_lines', 'trim_whitespace'],
+            \ 'python': ['autopep8', 'yapf', 'isort', 'autoflake', 'black']
+            \}
 " Disable warnings about trailing whitespaace for Python files
-let b:ale_warn_about_trailing_whitespace = 0
+let g:ale_warn_about_trailing_whitespace = 0
+" Fix the file when saving
+let g:ale_fix_on_save = 1
+" Don't interrupt while writing
+let g:ale_lint_on_text_changed = 'never'
+" No errors while opening a file
+let g:ale_lint_on_enter = 0
 
 " settings for flake8 PEP8 Python format testing
 let g:flake8_show_quickfix=1 "quickfix window opens
