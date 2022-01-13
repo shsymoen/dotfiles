@@ -163,7 +163,7 @@ let g:ale_linters = {
 " Fix Python files with autopep8 and yapf
 let g:ale_fixers = {
             \ '*': ['remove_trailing_lines', 'trim_whitespace'],
-            \ 'python': ['isort', 'autoflake', 'black']
+            \ 'python': ['isort', 'black']
             \}
 " Disable warnings about trailing whitespaace for Python files
 let g:ale_warn_about_trailing_whitespace = 0
