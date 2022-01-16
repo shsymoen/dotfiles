@@ -186,6 +186,9 @@ let g:pydocstring_doq_path = '~/anaconda3/bin/doq'
 let g:pydocstring_formatter = 'numpy'
 nmap <silent> <C-d> <Plug>(pydocstring)
 
+" Change colorscheme
+colorscheme everforest
+
 " Smooth scrolling
 noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
 noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
@@ -205,16 +208,3 @@ endif
 " to have proper color scheme in tmux
 set background=dark
 set t_Co=256
-
-" When saving remove trailing spaces
-autocmd BufWritePre *.py %s/\s\+$//e
-
-" python with virtualenv support
-" py << EOF
-" import os
-" import sys
-" if 'VIRTUAL_ENV' in os.environ:
-"     project_base_dir = os.environ['VIRTUAL_ENV']
-"     activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
-"     execfile(activate_this, dict(__file__=activate_this))
-" EOF
