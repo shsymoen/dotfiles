@@ -13,11 +13,15 @@ git clone https://github.com/jmcantrell/vim-virtualenv.git ~/.vim/bundle/vim-vir
 git clone https://github.com/dense-analysis/ale.git ~/.vim/bundle/ale
 git clone https://github.com/tmhedberg/SimpylFold.git ~/.vim/bundle/SimpylFold
 git clone https://github.com/Konfekt/FastFold.git ~/.vim/bundle/FastFold
+git clone https://github.com/sainnhe/everforest.git ~/.vim/bundle/everforest
 git clone https://github.com/yuttie/comfortable-motion.vim.git ~/.vim/bundle/comfortable-motion.vim
+git clone https://github.com/heavenshell/vim-pydocstring.git ~/.vim/bundle/vim-pydocstring.vim
+cd ~/.vim/bundle/vim-pydocstring.vim && make install
 git clone git://github.com/majutsushi/tagbar ~/.vim/bundle/tagbar
 ln -s $DIR/.vimrc ~/.vimrc
 
 conda install black
+pip install doq
 
 mkdir -p ~/.tmux/plugins
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm

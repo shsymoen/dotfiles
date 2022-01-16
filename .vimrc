@@ -80,14 +80,11 @@ set wildmenu
 " Highlight matched words
 set hlsearch
 
-" Turn off highlighted words with ,<space>
-nnoremap <leader><space> :nohlsearch<CR>
-
-" Different leader character
-let mapleader=","
-
 " jk is escape
 inoremap jk <esc>
+
+" Turn off highlighted words with ,<space>
+nnoremap <leader><space> :nohlsearch<CR>
 
 " Start CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -184,13 +181,16 @@ let g:flake8_show_in_file=1 "show markers in the file
 " Enable Tagbar
 nmap <F8> :TagbarToggle<CR>
 
+" Changes to pydocstring
+let g:pydocstring_doq_path = '~/anaconda3/bin/doq'
+let g:pydocstring_formatter = 'numpy'
+nmap <silent> <C-d> <Plug>(pydocstring)
+
 " Smooth scrolling
 noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(40)<CR>
 noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-40)<CR>
 let g:comfortable_motion_no_default_key_mappings = 1
 let g:comfortable_motion_impulse_multiplier = 1  " Feel free to increase/decrease this value.
-nnoremap <silent> <C-d> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 2)<CR>
-nnoremap <silent> <C-u> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -2)<CR>
 nnoremap <silent> <C-f> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * 4)<CR>
 nnoremap <silent> <C-b> :call comfortable_motion#flick(g:comfortable_motion_impulse_multiplier * winheight(0) * -4)<CR>
 
