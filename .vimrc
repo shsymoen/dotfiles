@@ -190,6 +190,7 @@ nmap <silent> <C-d> <Plug>(pydocstring)
 packadd! vimspector
 let g:vimspector_enable_mappings = 'HUMAN'
 let g:vimspector_install_gadgets = [ 'debugpy' ]
+nmap <C-s> :call vimspector#Reset()<CR>
 
 " Change colorscheme
 colorscheme everforest
