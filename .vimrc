@@ -186,6 +186,11 @@ let g:pydocstring_doq_path = '~/anaconda3/bin/doq'
 let g:pydocstring_formatter = 'numpy'
 nmap <silent> <C-d> <Plug>(pydocstring)
 
+" start vimspector debugger
+packadd! vimspector
+let g:vimspector_enable_mappings = 'HUMAN'
+let g:vimspector_install_gadgets = [ 'debugpy' ]
+
 " Change colorscheme
 colorscheme everforest
 

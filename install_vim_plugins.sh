@@ -21,6 +21,7 @@ git clone https://github.com/yuttie/comfortable-motion.vim.git ~/.vim/bundle/com
 git clone https://github.com/heavenshell/vim-pydocstring.git ~/.vim/bundle/vim-pydocstring.vim
 cd ~/.vim/bundle/vim-pydocstring.vim && make install
 git clone git://github.com/majutsushi/tagbar ~/.vim/bundle/tagbar
+git clone https://github.com/puremourning/vimspector ~/.vim/pack/vimspector/opt/vimspector
 ln -s $DIR/.vimrc ~/.vimrc
 
 conda install black
