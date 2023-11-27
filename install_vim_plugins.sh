@@ -7,7 +7,6 @@ mkdir -p ~/.vim/{undodir,autoload,bundle,color}
 
 # Define the list of packages to install with full repo paths
 packages=(
-  "https://github.com/tpo/pathogen.vim.git"
   "https://github.com/scrooloose/nerdtree.git"
   "https://github.com/kien/ctrlp.vim.git"
   "https://github.com/powerline/powerline.git"
@@ -19,6 +18,8 @@ packages=(
   "https://github.com/sainnhe/everforest.git"
   "https://github.com/yuttie/comfortable-motion.vim.git"
   "https://github.com/heavenshell/vim-pydocstring.vim.git"
+  "https://github.com/preservim/tagbar.git"
+  "https://github.com/puremourning/vimspector.git"
 )
 
 # Install Vim if it's not already installed
@@ -27,14 +28,22 @@ if ! command -v vim &> /dev/null; then
   sudo pacman -S vim
 fi
 
+# Check if the pathogen.vim plugin is already installed
+if [ ! -f ~/.vim/autoload/pathogen.vim ]; then
+  echo "Installing pathogen.vim..."
+  curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+fi
+
 # Install each package from the list
 for package_url in "${packages[@]}"; do
   package_name=$(basename "${package_url}")
   # Extract the package name from the URL
 
-  if [ ! -d ~/.vim/bundle/$package_name ]; then
+  # Check if the package folder exists with or without the .git extension
+  package_dir=$(basename "${package_url/.git}")
+  if [ ! -d ~/.vim/bundle/$package_dir ]; then
     echo "Installing $package_name..."
-    git clone ${package_url} ~/.vim/bundle/$package_name
+    git clone ${package_url} ~/.vim/bundle/$package_dir
   fi
 done
 
@@ -54,8 +63,8 @@ if [ -d ~/.vim/bundle/YouCompleteMe ]; then
 fi
 
 # Install vim-pydocstring
-if [ -d ~/.vim/bundle/vim-pydocstring.vim ]; then
-  cd ~/.vim/bundle/vim-pydocstring.vim
+if [ -d ~/.vim/bundle/vim-pydocstring ]; then
+  cd ~/.vim/bundle/vim-pydocstring
   echo "Installing vim-pydocstring..."
   make install
 fi
